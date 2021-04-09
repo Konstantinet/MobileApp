@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">final thing</string>
+    <string name="second_save_image">Button</string>
+    <string name="second_upload_image">upload image</string>
+    <string name="second_add_text">Add text</string>
+
+    <string name="second_hint">Enter text here</string>
+    <string name="second_apply">Apply text</string>
+    <string name="img1">img1</string>
+    <string name="img2">img2</string>
+    <string name="img3">img3</string>
+    <string name="img4">img4</string>
+</resources>
