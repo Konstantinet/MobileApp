@@ -3,16 +3,15 @@ package com.example.finalthing
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
-import android.widget.EditText
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_second.*
 
 class SecondActivity : AppCompatActivity() {
@@ -50,10 +49,33 @@ class SecondActivity : AppCompatActivity() {
             }
         }
 
+
+                //val Scroll:HorizontalScrollView = findViewById(R.id.scroll)
+
+
+
+
+
+
         second_text_btn.setOnClickListener{
             Toast.makeText(this, "add button worked", Toast.LENGTH_SHORT).show()
             second_edit_text.visibility = View.VISIBLE
             apply_btn.visibility = View.VISIBLE
+            ChangeFontButton.visibility = View.VISIBLE
+        }
+
+
+        ChangeFontButton.setOnClickListener {
+            var intent = Intent(this,FontsLibActivity::class.java)
+
+            var test :ArrayList<String> = ArrayList<String>()
+
+            this.getDir("fonts", Context.MODE_PRIVATE).walk().forEach{test.add(it.absolutePath)}
+            //Log.d("way", this.getDir("fonts", Context.MODE_PRIVATE).absolutePath)
+            intent.putStringArrayListExtra(FontsLibActivity.STORED_FONTS,test)
+
+            //var imgLib= ImgLib(this.filesDir);
+            startActivityForResult(intent,1)
         }
 
         apply_btn.setOnClickListener {
@@ -215,6 +237,7 @@ class SecondActivity : AppCompatActivity() {
                 return true
             }
         })
+
 
         sticker1.setOnClickListener {
             when(kek)
@@ -2980,7 +3003,6 @@ class SecondActivity : AppCompatActivity() {
     }
 
 
-
     override fun onDestroy() {
         super.onDestroy()
         var count = 0
@@ -3001,6 +3023,7 @@ class SecondActivity : AppCompatActivity() {
 
     companion object
     {
+        val ACCESS_MESSAGE = "ACCESS_MESSAGE"
         private val IMAGE_PICK_THING = 1000;
         private val PERMISSION_CODE = 1001;
     }
@@ -3022,6 +3045,12 @@ class SecondActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_THING){
             second_pic.setImageURI(data?.data)
+        }
+        if (resultCode == Activity.RESULT_OK && requestCode == 1){
+            val textView = findViewById<TextView>(R.id.second_text)
+            var accessMessage = data?.getStringExtra(ACCESS_MESSAGE);
+            textView.typeface = Typeface.createFromFile(accessMessage);
+            Log.d("typeface converted","converted")
         }
     }
 }

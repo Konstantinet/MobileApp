@@ -142,6 +142,7 @@
         android:textSize="40sp" />
 
     <HorizontalScrollView
+        android:id = "@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -1170,4 +1171,11 @@
         android:layout_marginTop="82dp"
         android:layout_marginBottom="650dp"
         android:text="+" />
+
+    <Button
+        android:id="@+id/ChangeFontButton"
+        android:layout_width="103dp"
+        android:layout_height="67dp"
+        android:text="Change Font"
+        android:visibility="invisible" />
 </RelativeLayout>
