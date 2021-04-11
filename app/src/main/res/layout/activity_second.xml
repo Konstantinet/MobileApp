@@ -5,7 +5,8 @@
     android:layout_width="400dp"
     android:layout_height="match_parent"
     android:background="#19191b"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:id="@+id/layout">
 
 
     <ImageView
@@ -142,6 +143,7 @@
         android:textSize="40sp" />
 
     <HorizontalScrollView
+        android:id = "@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -1170,4 +1172,19 @@
         android:layout_marginTop="82dp"
         android:layout_marginBottom="650dp"
         android:text="+" />
+
+    <Button
+        android:id="@+id/ChangeFontButton"
+        android:layout_width="103dp"
+        android:layout_height="67dp"
+        android:text="Change Font"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/NextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="500dp"
+        android:text="Next" />
 </RelativeLayout>
