@@ -1,9 +1,11 @@
 package com.example.finalthing
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.*
-import android.graphics.Path.FillType
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -104,5 +106,33 @@ class SavingActivity : AppCompatActivity() {
         {
             Toast.makeText(this, "Unable to access the storage", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun SharePicture(view:View){
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.type = "image/jpg"
+
+
+        val storageDirectory = Environment.getExternalStorageDirectory().toString()
+        val file = File(storageDirectory, "temp.jpg")
+        sendIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        try
+        {
+            val stream: OutputStream = FileOutputStream(file)
+            var bitmap = BitmapFactory.decodeStream(openFileInput("myImage"));
+            val croppedBitmap = Bitmap.createBitmap(bitmap, 45, 605, 880, 660)
+            croppedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
+            stream.flush()
+            stream.close()
+
+
+        }
+        catch(e: Exception)
+        {
+            e.printStackTrace()
+        }
+        sendIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+        startActivity(Intent.createChooser(sendIntent, "Поделиться"))
     }
 }
