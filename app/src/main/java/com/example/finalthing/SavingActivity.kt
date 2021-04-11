@@ -25,6 +25,13 @@ class SavingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        try
+        {
+            this.supportActionBar!!.hide()
+        }
+        catch (e: NullPointerException) {}
+
         setContentView(R.layout.activity_saving)
 
 
@@ -83,7 +90,7 @@ class SavingActivity : AppCompatActivity() {
                 var bitmapstring = intent.getStringExtra(SAVED_MESSAGE)
                 var bitmap = BitmapFactory.decodeStream(openFileInput("myImage"));
                 //var out = ByteArrayOutputStream()
-                val croppedBitmap = Bitmap.createBitmap(bitmap, 10, 10, 200, 200)
+                val croppedBitmap = Bitmap.createBitmap(bitmap, 45, 605, 880, 660)
 
                 //bitmap.compress(Bitmap.CompressFormat.WEBP, 0, out)
                 //val decoded = BitmapFactory.decodeStream(ByteArrayInputStream(out.toByteArray()))

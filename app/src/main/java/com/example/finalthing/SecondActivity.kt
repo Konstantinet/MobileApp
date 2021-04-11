@@ -26,7 +26,7 @@ import java.io.ByteArrayOutputStream
 
 class SecondActivity : AppCompatActivity() {
 
-    private var ourtextsize = 14f
+    private var ourtextsize = 40f
     private lateinit var memoryCache: LruCache<String, Bitmap>
 
     @SuppressLint("ResourceType")
@@ -126,7 +126,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                     startActivity(intent)
 
                 }
-            },scroll,button_minus,button_plus,ChangeFontButton,NextButton,second_text_btn,second_upload_btn,layout)
+            },button_minus,button_plus,ChangeFontButton,NextButton,second_text_btn,second_upload_btn,layout)
 
         }
 
@@ -172,17 +172,14 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                     MotionEvent.ACTION_DOWN ->
                     {
                         Log.d("TAG","Down x: " + event.getX() + ", Down y: " + event.getY() + ", Raw down x: " + event.getRawX() + ", Raw down y: " + event.getRawY())
-                        dX = event.getX() - event.getRawX()
-                        dY = event.getY() - event.getRawY()
+                        dX = event.getX() - second_text.getX()
+                        dY = event.getY() - second_text.getY()
                     }
                     MotionEvent.ACTION_MOVE ->
                     {
                         Log.d("TAG","Move x: " + event.getX() + ", Move y: " + event.getY() + ", Raw move x: " + event.getRawX() + ", Raw move y: " + event.getRawY())
-                        second_text.animate()
-                                .x(event.rawX + dX + 100)
-                                .y(event.rawY + dY + 300)
-                                .setDuration(0)
-                                .start()
+                        second_text.setX((event.getX() - dX))
+                        second_text.setY((event.getY() - dY))
                     }
                     MotionEvent.ACTION_UP -> {
                         count += 1;
@@ -209,17 +206,14 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                     MotionEvent.ACTION_DOWN ->
                     {
                         Log.d("TAG","Down x: " + event.getX() + ", Down y: " + event.getY() + ", Raw down x: " + event.getRawX() + ", Raw down y: " + event.getRawY())
-                        dX = event.getX() - event.getRawX()
-                        dY = event.getY() - event.getRawY()
+                        dX = event.getX() - second_sticker_vie1.getX()
+                        dY = event.getY() - second_sticker_vie1.getY()
                     }
                     MotionEvent.ACTION_MOVE ->
                     {
                         Log.d("TAG","Move x: " + event.getX() + ", Move y: " + event.getY() + ", Raw move x: " + event.getRawX() + ", Raw move y: " + event.getRawY())
-                        second_sticker_vie1.animate()
-                                .x(event.rawX + dX - 500)
-                                .y(event.rawY + dY)
-                                .setDuration(0)
-                                .start()
+                        second_sticker_vie1.setX((event.getX() - dX))
+                        second_sticker_vie1.setY((event.getY() - dY))
                     }
                     MotionEvent.ACTION_UP -> {
                         count += 1;
@@ -246,17 +240,14 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                     MotionEvent.ACTION_DOWN ->
                     {
                         Log.d("TAG","Down x: " + event.getX() + ", Down y: " + event.getY() + ", Raw down x: " + event.getRawX() + ", Raw down y: " + event.getRawY())
-                        dX = event.getX() - event.getRawX()
-                        dY = event.getY() - event.getRawY()
+                        dX = event.getX() - second_sticker_vie2.getX()
+                        dY = event.getY() - second_sticker_vie2.getY()
                     }
                     MotionEvent.ACTION_MOVE ->
                     {
                         Log.d("TAG","Move x: " + event.getX() + ", Move y: " + event.getY() + ", Raw move x: " + event.getRawX() + ", Raw move y: " + event.getRawY())
-                        second_sticker_vie2.animate()
-                                .x(event.rawX + dX - 500)
-                                .y(event.rawY + dY)
-                                .setDuration(0)
-                                .start()
+                        second_sticker_vie2.setX((event.getX() - dX))
+                        second_sticker_vie2.setY((event.getY() - dY))
                     }
                     MotionEvent.ACTION_UP -> {
                         count += 1;
@@ -283,17 +274,14 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                     MotionEvent.ACTION_DOWN ->
                     {
                         Log.d("TAG","Down x: " + event.getX() + ", Down y: " + event.getY() + ", Raw down x: " + event.getRawX() + ", Raw down y: " + event.getRawY())
-                        dX = event.getX() - event.getRawX()
-                        dY = event.getY() - event.getRawY()
+                        dX = event.getX() - second_sticker_vie3.getX()
+                        dY = event.getY() - second_sticker_vie3.getY()
                     }
                     MotionEvent.ACTION_MOVE ->
                     {
                         Log.d("TAG","Move x: " + event.getX() + ", Move y: " + event.getY() + ", Raw move x: " + event.getRawX() + ", Raw move y: " + event.getRawY())
-                        second_sticker_vie3.animate()
-                                .x(event.rawX + dX - 500)
-                                .y(event.rawY + dY)
-                                .setDuration(0)
-                                .start()
+                        second_sticker_vie3.setX((event.getX() - dX))
+                        second_sticker_vie3.setY((event.getY() - dY))
                     }
                     MotionEvent.ACTION_UP -> {
                         count += 1;
@@ -333,7 +321,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img1)
                     st3 = 1
                 }
                 else ->
@@ -358,7 +346,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img2)
                     st3 = 1
                 }
                 else ->
@@ -383,7 +371,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img3)
                     st3 = 1
                 }
                 else ->
@@ -408,7 +396,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img4)
                     st3 = 1
                 }
                 else ->
@@ -433,7 +421,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img5)
                     st3 = 1
                 }
                 else ->
@@ -458,7 +446,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img6)
                     st3 = 1
                 }
                 else ->
@@ -483,7 +471,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img7)
                     st3 = 1
                 }
                 else ->
@@ -508,7 +496,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img8)
                     st3 = 1
                 }
                 else ->
@@ -533,7 +521,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img9)
                     st3 = 1
                 }
                 else ->
@@ -558,7 +546,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img10)
                     st3 = 1
                 }
                 else ->
@@ -583,7 +571,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img11)
                     st3 = 1
                 }
                 else ->
@@ -608,7 +596,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img12)
                     st3 = 1
                 }
                 else ->
@@ -633,7 +621,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img13)
                     st3 = 1
                 }
                 else ->
@@ -658,7 +646,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img14)
                     st3 = 1
                 }
                 else ->
@@ -683,7 +671,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img15)
                     st3 = 1
                 }
                 else ->
@@ -708,7 +696,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img16)
                     st3 = 1
                 }
                 else ->
@@ -733,7 +721,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img17)
                     st3 = 1
                 }
                 else ->
@@ -758,7 +746,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img18)
                     st3 = 1
                 }
                 else ->
@@ -783,7 +771,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img19)
                     st3 = 1
                 }
                 else ->
@@ -808,7 +796,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img20)
                     st3 = 1
                 }
                 else ->
@@ -833,7 +821,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img21)
                     st3 = 1
                 }
                 else ->
@@ -858,7 +846,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img22)
                     st3 = 1
                 }
                 else ->
@@ -883,7 +871,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img23)
                     st3 = 1
                 }
                 else ->
@@ -908,7 +896,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img24)
                     st3 = 1
                 }
                 else ->
@@ -933,7 +921,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img25)
                     st3 = 1
                 }
                 else ->
@@ -958,7 +946,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img26)
                     st3 = 1
                 }
                 else ->
@@ -983,7 +971,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img27)
                     st3 = 1
                 }
                 else ->
@@ -1008,7 +996,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img28)
                     st3 = 1
                 }
                 else ->
@@ -1033,7 +1021,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img29)
                     st3 = 1
                 }
                 else ->
@@ -1058,7 +1046,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img30)
                     st3 = 1
                 }
                 else ->
@@ -1083,7 +1071,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img31)
                     st3 = 1
                 }
                 else ->
@@ -1108,7 +1096,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img32)
                     st3 = 1
                 }
                 else ->
@@ -1133,7 +1121,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img33)
                     st3 = 1
                 }
                 else ->
@@ -1158,7 +1146,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img34)
                     st3 = 1
                 }
                 else ->
@@ -1183,7 +1171,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img35)
                     st3 = 1
                 }
                 else ->
@@ -1208,7 +1196,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img36)
                     st3 = 1
                 }
                 else ->
@@ -1233,7 +1221,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img37)
                     st3 = 1
                 }
                 else ->
@@ -1258,7 +1246,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img38)
                     st3 = 1
                 }
                 else ->
@@ -1283,7 +1271,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img39)
                     st3 = 1
                 }
                 else ->
@@ -1308,7 +1296,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img40)
                     st3 = 1
                 }
                 else ->
@@ -1333,7 +1321,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img41)
                     st3 = 1
                 }
                 else ->
@@ -1358,7 +1346,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img42)
                     st3 = 1
                 }
                 else ->
@@ -1383,7 +1371,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img43)
                     st3 = 1
                 }
                 else ->
@@ -1408,7 +1396,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img44)
                     st3 = 1
                 }
                 else ->
@@ -1433,7 +1421,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img45)
                     st3 = 1
                 }
                 else ->
@@ -1458,7 +1446,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img46)
                     st3 = 1
                 }
                 else ->
@@ -1483,7 +1471,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img47)
                     st3 = 1
                 }
                 else ->
@@ -1508,7 +1496,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img48)
                     st3 = 1
                 }
                 else ->
@@ -1533,7 +1521,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img49)
                     st3 = 1
                 }
                 else ->
@@ -1558,7 +1546,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img50)
                     st3 = 1
                 }
                 else ->
@@ -1583,7 +1571,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img51)
                     st3 = 1
                 }
                 else ->
@@ -1608,7 +1596,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img52)
                     st3 = 1
                 }
                 else ->
@@ -1633,7 +1621,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img53)
                     st3 = 1
                 }
                 else ->
@@ -1658,7 +1646,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img54)
                     st3 = 1
                 }
                 else ->
@@ -1683,7 +1671,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img55)
                     st3 = 1
                 }
                 else ->
@@ -1708,7 +1696,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img56)
                     st3 = 1
                 }
                 else ->
@@ -1733,7 +1721,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img57)
                     st3 = 1
                 }
                 else ->
@@ -1758,7 +1746,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img58)
                     st3 = 1
                 }
                 else ->
@@ -1783,7 +1771,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img59)
                     st3 = 1
                 }
                 else ->
@@ -1808,7 +1796,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img60)
                     st3 = 1
                 }
                 else ->
@@ -1833,7 +1821,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img61)
                     st3 = 1
                 }
                 else ->
@@ -1858,7 +1846,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img62)
                     st3 = 1
                 }
                 else ->
@@ -1883,7 +1871,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img63)
                     st3 = 1
                 }
                 else ->
@@ -1908,7 +1896,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img64)
                     st3 = 1
                 }
                 else ->
@@ -1933,7 +1921,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img65)
                     st3 = 1
                 }
                 else ->
@@ -1958,7 +1946,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img66)
                     st3 = 1
                 }
                 else ->
@@ -1983,7 +1971,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img67)
                     st3 = 1
                 }
                 else ->
@@ -2008,7 +1996,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img68)
                     st3 = 1
                 }
                 else ->
@@ -2033,7 +2021,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img69)
                     st3 = 1
                 }
                 else ->
@@ -2058,7 +2046,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img70)
                     st3 = 1
                 }
                 else ->
@@ -2083,7 +2071,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img71)
                     st3 = 1
                 }
                 else ->
@@ -2108,7 +2096,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img72)
                     st3 = 1
                 }
                 else ->
@@ -2133,7 +2121,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img73)
                     st3 = 1
                 }
                 else ->
@@ -2158,7 +2146,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img74)
                     st3 = 1
                 }
                 else ->
@@ -2183,7 +2171,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img75)
                     st3 = 1
                 }
                 else ->
@@ -2208,7 +2196,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img76)
                     st3 = 1
                 }
                 else ->
@@ -2233,7 +2221,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img77)
                     st3 = 1
                 }
                 else ->
@@ -2258,7 +2246,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img78)
                     st3 = 1
                 }
                 else ->
@@ -2283,7 +2271,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img79)
                     st3 = 1
                 }
                 else ->
@@ -2308,7 +2296,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img80)
                     st3 = 1
                 }
                 else ->
@@ -2333,7 +2321,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img81)
                     st3 = 1
                 }
                 else ->
@@ -2358,7 +2346,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img82)
                     st3 = 1
                 }
                 else ->
@@ -2383,7 +2371,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img83)
                     st3 = 1
                 }
                 else ->
@@ -2408,7 +2396,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img84)
                     st3 = 1
                 }
                 else ->
@@ -2433,7 +2421,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img85)
                     st3 = 1
                 }
                 else ->
@@ -2458,7 +2446,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img86)
                     st3 = 1
                 }
                 else ->
@@ -2483,7 +2471,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img87)
                     st3 = 1
                 }
                 else ->
@@ -2508,7 +2496,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img88)
                     st3 = 1
                 }
                 else ->
@@ -2533,7 +2521,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img89)
                     st3 = 1
                 }
                 else ->
@@ -2558,7 +2546,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img90)
                     st3 = 1
                 }
                 else ->
@@ -2583,7 +2571,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img91)
                     st3 = 1
                 }
                 else ->
@@ -2608,7 +2596,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img92)
                     st3 = 1
                 }
                 else ->
@@ -2633,7 +2621,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img93)
                     st3 = 1
                 }
                 else ->
@@ -2658,7 +2646,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img94)
                     st3 = 1
                 }
                 else ->
@@ -2683,7 +2671,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img95)
                     st3 = 1
                 }
                 else ->
@@ -2708,7 +2696,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img96)
                     st3 = 1
                 }
                 else ->
@@ -2733,7 +2721,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img97)
                     st3 = 1
                 }
                 else ->
@@ -2758,7 +2746,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img98)
                     st3 = 1
                 }
                 else ->
@@ -2783,7 +2771,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img99)
                     st3 = 1
                 }
                 else ->
@@ -2808,7 +2796,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img100)
                     st3 = 1
                 }
                 else ->
@@ -2833,7 +2821,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img101)
                     st3 = 1
                 }
                 else ->
@@ -2858,7 +2846,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img102)
                     st3 = 1
                 }
                 else ->
@@ -2883,7 +2871,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img103)
                     st3 = 1
                 }
                 else ->
@@ -2908,7 +2896,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img104)
                     st3 = 1
                 }
                 else ->
@@ -2933,7 +2921,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img105)
                     st3 = 1
                 }
                 else ->
@@ -2958,7 +2946,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img106)
                     st3 = 1
                 }
                 else ->
@@ -2983,7 +2971,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img107)
                     st3 = 1
                 }
                 else ->
@@ -3008,7 +2996,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img108)
                     st3 = 1
                 }
                 else ->
@@ -3033,7 +3021,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img109)
                     st3 = 1
                 }
                 else ->
@@ -3058,7 +3046,7 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
                 st3 ->
                 {
                     second_sticker_vie3.visibility = View.VISIBLE
-                    second_sticker_vie3.setImageResource(R.drawable.merry_christmas)
+                    second_sticker_vie3.setImageResource(R.drawable.img110)
                     st3 = 1
                 }
                 else ->
@@ -3067,12 +3055,12 @@ Log.d("savt",this.window.decorView.rootView.javaClass.toString())
         }
 
         button_plus.setOnClickListener {
-            ourtextsize += 1f
+            ourtextsize += 4f
             second_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, ourtextsize)
         }
 
         button_minus.setOnClickListener {
-            ourtextsize -= 1f
+            ourtextsize -= 4f
             second_text.setTextSize(TypedValue.COMPLEX_UNIT_SP, ourtextsize)
         }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#19191b"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
@@ -22,27 +22,35 @@
          />
 
 
-    <Button
+    <ImageButton
         android:id="@+id/pic_save_img_btn"
-        android:layout_width="162dp"
-        android:layout_height="88dp"
+        android:layout_width="113dp"
+        android:layout_height="99dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="593dp"
-        android:layout_marginEnd="207dp"
-        android:layout_marginBottom="50dp"
-        android:onClick="onlick_save_image"
-        android:text="save image" />
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="621dp"
+        android:layout_marginEnd="213dp"
+        android:layout_marginBottom="60dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/second_save" />
 
-    <Button
+    <ImageButton
         android:id="@+id/Sharebutton"
-        android:layout_width="150dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="600dp"
-        android:text="Share"
-        android:onClick = "SharePicture"/>
+        android:layout_width="115dp"
+        android:layout_height="104dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="618dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="58dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/second_share" />
 </RelativeLayout>
